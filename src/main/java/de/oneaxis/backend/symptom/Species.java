@@ -5,14 +5,10 @@ import de.oneaxis.backend.ddd.ValueObject;
 
 @ValueObject
 class Species {
-    private final String name;
+    public final String name;
 
     @JsonCreator
     Species(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 }

@@ -1,18 +1,21 @@
 package de.oneaxis.backend.symptom;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import de.oneaxis.backend.ddd.AggregateRoot;
+import org.springframework.data.annotation.Id;
 
 @AggregateRoot
-public class Symptom {
-    private final Animal animal;
+class Symptom {
+    @Id
+    public  final SymptomId symptomId;
+    public final Animal animal;
 
-    @JsonCreator
-    Symptom(Animal animal) {
+    Symptom(SymptomId symptomId, Animal animal) {
+        this.symptomId = symptomId;
         this.animal = animal;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    Symptom(Animal animal) {
+        this.symptomId = SymptomId.getNew();
+        this.animal = animal;
     }
 }

@@ -1,5 +1,7 @@
-package de.oneaxis.backend.tactical.storytelling;
+package de.oneaxis.backend.application;
 
+import de.oneaxis.backend.domain.tactical.storytelling.Symptom;
+import de.oneaxis.backend.domain.tactical.storytelling.SymptomId;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

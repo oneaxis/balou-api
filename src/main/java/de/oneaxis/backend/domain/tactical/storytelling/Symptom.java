@@ -1,20 +1,20 @@
-package de.oneaxis.backend.tactical.storytelling;
+package de.oneaxis.backend.domain.tactical.storytelling;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import de.oneaxis.backend.strategic.Entity;
+import de.oneaxis.backend.domain.strategic.Entity;
 import org.springframework.data.annotation.Id;
 
 import java.util.Objects;
 
 @Entity
-class Symptom {
+public class Symptom {
     @Id
     private final SymptomId symptomId;
     private final Pet pet;
 
     @JsonCreator
-    Symptom(@JsonProperty("symptomId") SymptomId symptomId, @JsonProperty("pet") Pet pet) {
+    public Symptom(@JsonProperty("symptomId") SymptomId symptomId, @JsonProperty("pet") Pet pet) {
         this.symptomId = symptomId;
         this.pet = pet;
     }

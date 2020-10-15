@@ -1,4 +1,4 @@
-package de.oneaxis.backend.tactical.storytelling;
+package de.oneaxis.backend.domain.tactical.storytelling;
 
 class Period {
 //    @JsonSerialize(using = ZonedDateTimeSerializer.class)

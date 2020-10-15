@@ -1,17 +1,17 @@
-package de.oneaxis.backend.tactical.storytelling;
+package de.oneaxis.backend.domain.tactical.storytelling;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import de.oneaxis.backend.strategic.ValueObject;
+import de.oneaxis.backend.domain.strategic.ValueObject;
 
 import java.util.Objects;
 
 @ValueObject
-class Species {
+class AnimalId {
     private final String value;
 
     @JsonCreator
-    Species(@JsonProperty("value") String value) {
+    AnimalId(@JsonProperty("value") String value) {
         this.value = value;
     }
 
@@ -21,7 +21,7 @@ class Species {
 
     @Override
     public String toString() {
-        return "Species{" +
+        return "AnimalId{" +
                 "value='" + value + '\'' +
                 '}';
     }
@@ -29,9 +29,9 @@ class Species {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Species)) return false;
-        Species species = (Species) o;
-        return getValue().equals(species.getValue());
+        if (!(o instanceof AnimalId)) return false;
+        AnimalId animalId = (AnimalId) o;
+        return getValue().equals(animalId.getValue());
     }
 
     @Override

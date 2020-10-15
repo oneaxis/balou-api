@@ -1,8 +1,8 @@
-package de.oneaxis.backend.tactical.storytelling;
+package de.oneaxis.backend.domain.tactical.storytelling;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import de.oneaxis.backend.strategic.Entity;
+import de.oneaxis.backend.domain.strategic.Entity;
 import org.springframework.data.annotation.Id;
 
 import java.util.Objects;

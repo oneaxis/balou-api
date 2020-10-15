@@ -1,4 +1,4 @@
-//package de.oneaxis.backend.tactical.storytelling;
+//package de.oneaxis.backend.domain.tactical.storytelling;
 //
 //import de.oneaxis.backend.JacksonTests;
 //

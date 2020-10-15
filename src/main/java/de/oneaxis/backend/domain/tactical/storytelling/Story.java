@@ -1,8 +1,8 @@
-//package de.oneaxis.backend.tactical.storytelling;
+//package de.oneaxis.backend.domain.tactical.storytelling;
 //
-//import de.oneaxis.backend.strategic.AggregateRoot;
+//import de.oneaxis.backend.domain.strategic.Aggregate;
 //
-//@AggregateRoot
+//@Aggregate
 //public class Story {
 //
 //    private final Symptom symptom;

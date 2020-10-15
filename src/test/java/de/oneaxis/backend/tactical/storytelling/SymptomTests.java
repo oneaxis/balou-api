@@ -1,4 +1,4 @@
-//package de.oneaxis.backend.tactical.story;
+//package de.oneaxis.backend.tactical.storytelling;
 //
 //import de.oneaxis.backend.JacksonTests;
 //import org.junit.jupiter.api.Test;

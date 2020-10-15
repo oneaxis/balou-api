@@ -1,4 +1,4 @@
-package de.oneaxis.backend.tactical.story;
+package de.oneaxis.backend.tactical.storytelling;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,11 +7,11 @@ import de.oneaxis.backend.strategic.ValueObject;
 import java.util.Objects;
 
 @ValueObject
-class AnimalId {
+class Race {
     private final String value;
 
     @JsonCreator
-    AnimalId(@JsonProperty("value") String value) {
+    Race(@JsonProperty("value") String value) {
         this.value = value;
     }
 
@@ -21,7 +21,7 @@ class AnimalId {
 
     @Override
     public String toString() {
-        return "AnimalId{" +
+        return "Race{" +
                 "value='" + value + '\'' +
                 '}';
     }
@@ -29,9 +29,9 @@ class AnimalId {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AnimalId)) return false;
-        AnimalId animalId = (AnimalId) o;
-        return getValue().equals(animalId.getValue());
+        if (!(o instanceof Race)) return false;
+        Race race = (Race) o;
+        return getValue().equals(race.getValue());
     }
 
     @Override

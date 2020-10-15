@@ -1,12 +1,4 @@
-package de.oneaxis.backend.tactical.story;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
-
-import java.time.ZonedDateTime;
-import java.util.Objects;
+package de.oneaxis.backend.tactical.storytelling;
 
 class Period {
 //    @JsonSerialize(using = ZonedDateTimeSerializer.class)

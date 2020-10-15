@@ -1,4 +1,4 @@
-package de.oneaxis.backend.tactical.story;
+package de.oneaxis.backend.tactical.storytelling;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

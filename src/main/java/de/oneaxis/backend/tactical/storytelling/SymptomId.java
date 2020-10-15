@@ -1,4 +1,4 @@
-package de.oneaxis.backend.tactical.story;
+package de.oneaxis.backend.tactical.storytelling;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import de.oneaxis.backend.strategic.ValueObject;

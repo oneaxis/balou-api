@@ -8,14 +8,14 @@ import org.springframework.data.annotation.Id;
 import java.util.Objects;
 
 @Entity
-class Pet {
+class Animal {
 
     @Id
     private final AnimalId animalId;
     private final AnimalCharacteristics animalCharacteristics;
 
     @JsonCreator
-    Pet(@JsonProperty("animalId") AnimalId animalId, @JsonProperty("animalCharacteristics") AnimalCharacteristics animalCharacteristics) {
+    Animal(@JsonProperty("animalId") AnimalId animalId, @JsonProperty("animalCharacteristics") AnimalCharacteristics animalCharacteristics) {
         this.animalId = animalId;
         this.animalCharacteristics = animalCharacteristics;
     }
@@ -30,7 +30,7 @@ class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
+        return "Animal{" +
                 "animalId=" + animalId +
                 ", animalCharacteristics=" + animalCharacteristics +
                 '}';
@@ -39,10 +39,10 @@ class Pet {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Pet)) return false;
-        Pet pet = (Pet) o;
-        return animalId.equals(pet.animalId) &&
-                animalCharacteristics.equals(pet.animalCharacteristics);
+        if (!(o instanceof Animal)) return false;
+        Animal animal = (Animal) o;
+        return animalId.equals(animal.animalId) &&
+                animalCharacteristics.equals(animal.animalCharacteristics);
     }
 
     @Override

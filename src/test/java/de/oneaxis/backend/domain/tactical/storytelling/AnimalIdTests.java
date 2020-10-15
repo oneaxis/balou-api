@@ -2,12 +2,10 @@ package de.oneaxis.backend.domain.tactical.storytelling;
 
 import de.oneaxis.backend.JacksonTests;
 
-import java.util.UUID;
-
-class RaceTests extends JacksonTests<Race> {
+class AnimalIdTests extends JacksonTests<AnimalId> {
 
     @Override
     protected void createMockInstance() {
-        this.mockInstance = StoryTellingMockFactory.getRaceMock();
+        this.mockInstance = StoryTellingMockFactory.getAnimalIdMock();
     }
 }

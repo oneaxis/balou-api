@@ -11,27 +11,27 @@ import java.util.Objects;
 public class Symptom {
     @Id
     private final SymptomId symptomId;
-    private final Pet pet;
+    private final Animal animal;
 
     @JsonCreator
-    public Symptom(@JsonProperty("symptomId") SymptomId symptomId, @JsonProperty("pet") Pet pet) {
+    public Symptom(@JsonProperty("symptomId") SymptomId symptomId, @JsonProperty("animal") Animal animal) {
         this.symptomId = symptomId;
-        this.pet = pet;
+        this.animal = animal;
     }
 
     public SymptomId getSymptomId() {
         return symptomId;
     }
 
-    public Pet getPet() {
-        return pet;
+    public Animal getAnimal() {
+        return animal;
     }
 
     @Override
     public String toString() {
         return "Symptom{" +
                 "symptomId=" + symptomId +
-                ", pet=" + pet +
+                ", animal=" + animal +
                 '}';
     }
 
@@ -41,11 +41,11 @@ public class Symptom {
         if (!(o instanceof Symptom)) return false;
         Symptom symptom = (Symptom) o;
         return symptomId.equals(symptom.symptomId) &&
-                pet.equals(symptom.pet);
+                animal.equals(symptom.animal);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symptomId, pet);
+        return Objects.hash(symptomId, animal);
     }
 }

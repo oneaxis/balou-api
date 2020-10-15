@@ -4,10 +4,10 @@ import de.oneaxis.backend.JacksonTests;
 
 import java.util.UUID;
 
-class RaceTests extends JacksonTests<Race> {
+class AnimalCharacteristicsTests extends JacksonTests<AnimalCharacteristics> {
 
     @Override
     protected void createMockInstance() {
-        this.mockInstance = StoryTellingMockFactory.getRaceMock();
+        this.mockInstance = StoryTellingMockFactory.getAnimalCharacteristicsMock();
     }
 }

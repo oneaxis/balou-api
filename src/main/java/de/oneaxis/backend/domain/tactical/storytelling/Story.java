@@ -6,6 +6,6 @@
 //public class Story {
 //
 //    private final Symptom symptom;
-//    private final Pet pet;
+//    private final Animal pet;
 //    private final Period period;
 //}

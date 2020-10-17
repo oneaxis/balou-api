@@ -1,13 +1,13 @@
 package de.oneaxis.backend.domain.tactical.storytelling;
 
-import de.oneaxis.backend.JacksonTests;
+import de.oneaxis.backend.MockState;
+import de.oneaxis.backend.SerializationTests;
+import de.oneaxis.backend.MockFactory;
 
-import java.util.UUID;
-
-class AnimalCharacteristicsTests extends JacksonTests<AnimalCharacteristics> {
+class AnimalCharacteristicsTests extends SerializationTests {
 
     @Override
-    protected void createMockInstance() {
-        this.mockInstance = StoryTellingMockFactory.getAnimalCharacteristicsMock();
+    public Object generateTestInstance() {
+        return StoryTellingMockFactory.getInstance().apply(AnimalCharacteristics.class, MockState.FULL_MOCK);
     }
 }

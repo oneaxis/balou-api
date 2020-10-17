@@ -1,13 +1,11 @@
 package de.oneaxis.backend.domain.tactical.storytelling;
 
-import de.oneaxis.backend.JacksonTests;
+import de.oneaxis.backend.MockState;
+import de.oneaxis.backend.SerializationTests;
 
-import java.util.UUID;
-
-class RaceTests extends JacksonTests<Race> {
-
+class RaceTests extends SerializationTests {
     @Override
-    protected void createMockInstance() {
-        this.mockInstance = StoryTellingMockFactory.getRaceMock();
+    public Object generateTestInstance() {
+        return StoryTellingMockFactory.getInstance().apply(Race.class, MockState.FULL_MOCK);
     }
 }

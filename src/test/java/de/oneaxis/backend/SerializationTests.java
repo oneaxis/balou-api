@@ -5,40 +5,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public abstract class JacksonTests<T> {
+public abstract class SerializationTests {
 
     private ObjectMapper objectMapper;
-    protected T mockInstance;
+    protected Object testInstance;
 
     @BeforeEach
     void createPrerequisites() {
         this.objectMapper = new ObjectMapper();
-        this.createMockInstance();
+        this.testInstance = generateTestInstance();
     }
 
     @Test
     void ShouldParseAndProof() throws JsonProcessingException {
-        var parsedObjectJson = this.objectMapper.writeValueAsString(mockInstance);
+        var parsedObjectJson = this.objectMapper.writeValueAsString(testInstance);
         System.out.println("Parsed object JSON result:");
         System.out.println(parsedObjectJson);
 
-        var proofObject = this.objectMapper.readValue(parsedObjectJson, mockInstance.getClass());
+        var proofObject = this.objectMapper.readValue(parsedObjectJson, testInstance.getClass());
         System.out.println("Proof object result:");
         System.out.println(proofObject.toString());
-        assertThat(proofObject).isEqualToComparingFieldByField(mockInstance);
-
+        assertThat(proofObject).isEqualToComparingFieldByField(testInstance);
     }
 
-    /**
-     * Should create a mock instance of T to be used for inherited tests. E.g.:
-     * <code>
-     * protected void createMockInstance() {
-     *     this.mockInstance = someMockedInstance;
-     * }
-     * </code>
-     */
-    protected abstract void createMockInstance();
+    public abstract Object generateTestInstance();
 }

@@ -1,6 +1,6 @@
 //package de.oneaxis.backend.domain.tactical.storytelling;
 //
-//import de.oneaxis.backend.JacksonTests;
+//import de.oneaxis.backend.SerializationTests;
 //
 //import java.time.LocalDateTime;
 //import java.time.OffsetDateTime;
@@ -8,7 +8,7 @@
 //import java.time.ZonedDateTime;
 //import java.util.UUID;
 //
-//class PeriodTests extends JacksonTests<Period> {
+//class PeriodTests extends SerializationTests<StoryTellingMockFactory, Period> {
 //
 //    @Override
 //    protected void createMockInstance() {

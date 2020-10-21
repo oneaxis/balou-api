@@ -1,4 +1,4 @@
-package de.oneaxis.backend.application;
+package de.oneaxis.backend.application.storytelling;
 
 import de.oneaxis.backend.domain.tactical.storytelling.Symptom;
 import de.oneaxis.backend.domain.tactical.storytelling.SymptomId;

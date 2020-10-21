@@ -12,12 +12,6 @@ public class Symptom {
     private final Animal animal;
 
     @JsonCreator
-    public Symptom(@JsonProperty("animal") Animal animal) {
-        this.symptomId = SymptomId.fromUUID();
-        this.animal = animal;
-    }
-
-    @JsonCreator
     public Symptom(@JsonProperty("symptomId") SymptomId symptomId, @JsonProperty("animal") Animal animal) {
         this.symptomId = symptomId;
         this.animal = animal;

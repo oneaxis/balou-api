@@ -16,7 +16,7 @@ class Animal {
 
     @JsonCreator
     Animal(@JsonProperty("animalId") AnimalId animalId, @JsonProperty("animalCharacteristics") AnimalCharacteristics animalCharacteristics) {
-        this.animalId = animalId;
+        this.animalId = Objects.requireNonNullElse(animalId, AnimalId.fromUUID());
         this.animalCharacteristics = animalCharacteristics;
     }
 

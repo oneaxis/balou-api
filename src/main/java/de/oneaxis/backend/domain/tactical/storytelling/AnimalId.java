@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import de.oneaxis.backend.domain.strategic.ValueObject;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @ValueObject
 class AnimalId {
@@ -13,6 +14,10 @@ class AnimalId {
     @JsonCreator
     AnimalId(@JsonProperty("value") String value) {
         this.value = value;
+    }
+
+    static AnimalId fromUUID() {
+        return new AnimalId(UUID.randomUUID().toString());
     }
 
     public String getValue() {

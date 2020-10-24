@@ -13,8 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SymptomTests extends SerializationTests {
 
-
-    private final String SYMPTOMS_API_INDEX_FORMAT = "http://localhost:%d/symptoms";
+    private final String SYMPTOMS_API_INDEX_FORMAT = "http://localhost:%d/symptoms/%s";
 
     @LocalServerPort
     private int port;
@@ -28,24 +27,14 @@ class SymptomTests extends SerializationTests {
     }
 
     @Test
-    void ShouldCreateSymptom() {
+    void ShouldCreateAndGetByIdSymptom() {
 
-        String symptomsAPIEndpoint = String.format(SYMPTOMS_API_INDEX_FORMAT, port);
-        var newInstance = StoryTellingMockFactory.getInstance().apply(Symptom.class, MockState.STATELESS);
+        String symptomsAPICreateEndpoint = String.format(SYMPTOMS_API_INDEX_FORMAT, port, "");
+        var newInstance = (Symptom) StoryTellingMockFactory.getInstance().apply(Symptom.class, MockState.STATELESS);
 
-        var symptomResponse = this.restTemplate.postForEntity(symptomsAPIEndpoint, newInstance, Symptom.class).getBody();
-        assertThat(symptomResponse).isEqualToComparingOnlyGivenFields(newInstance);
-        assertThat(symptomResponse.getSymptomId().getValue()).isNotEmpty();
-    }
-
-    @Test
-    void ShouldGetSymptom() {
-
-        String symptomsAPIEndpoint = String.format(SYMPTOMS_API_INDEX_FORMAT, port);
-        var newInstance = StoryTellingMockFactory.getInstance().apply(Symptom.class, MockState.STATELESS);
-
-        var symptomResponse = this.restTemplate.postForEntity(symptomsAPIEndpoint, newInstance, Symptom.class).getBody();
-        assertThat(this.restTemplate.getForObject(symptomsAPIEndpoint, Symptom.class, symptomResponse.getSymptomId().getValue()))
-                .isEqualTo(symptomResponse.getSymptomId().getValue());
+        String symptomsAPIGetByIDEndpoint = String.format(SYMPTOMS_API_INDEX_FORMAT, port, newInstance.getSymptomId().getValue());
+        var symptomResponse = this.restTemplate.postForEntity(symptomsAPICreateEndpoint, newInstance, Symptom.class).getBody();
+        assertThat(this.restTemplate.getForObject(symptomsAPIGetByIDEndpoint, Symptom.class, symptomResponse.getSymptomId().getValue()))
+                .isEqualTo(symptomResponse);
     }
 }

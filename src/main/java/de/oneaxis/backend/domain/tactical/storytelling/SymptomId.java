@@ -34,13 +34,13 @@ public final class SymptomId {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof SymptomId)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         SymptomId symptomId = (SymptomId) o;
-        return getValue().equals(symptomId.getValue());
+        return value.equals(symptomId.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getValue());
+        return Objects.hash(value);
     }
 }

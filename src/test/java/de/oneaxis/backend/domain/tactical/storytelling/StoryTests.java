@@ -5,24 +5,32 @@ import org.junit.jupiter.api.Test;
 import java.time.Instant;
 import java.util.UUID;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 public class StoryTests {
 
     @Test
-    void ShouldCreateFullStoryAndValidate() {
+    void ShouldReturnValidatedStory() {
 
         //With
         var animalId = AnimalId.builder().value(UUID.randomUUID().toString()).build();
         var species = Species.builder().value("Dog").build();
         var race = Race.builder().value("Akita").build();
         var animalCharacteristics = AnimalCharacteristics.builder().race(race).species(species).build();
-        var animal = Animal.builder().animalId(animalId).animalCharacteristics(animalCharacteristics).build();
+        var animal = Animal.builder()
+                .animalId(animalId)
+                .animalCharacteristics(animalCharacteristics)
+                .createdAt(Instant.now())
+                .build();
         var symptomId = SymptomId.builder().value(UUID.randomUUID().toString()).build();
         var symptomName = SymptomName.builder().value("VKH").build();
         var symptomDescription = SymptomDescription.builder().value("Uveitis and vision disruption").build();
-        var symptom = Symptom.builder().symptomId(symptomId).symptomName(symptomName).symptomDescription(symptomDescription).build();
-
-        //When
-
+        var symptom = Symptom.builder()
+                .symptomId(symptomId)
+                .symptomName(symptomName)
+                .symptomDescription(symptomDescription)
+                .createdAt(Instant.now())
+                .build();
         var storyId = StoryId.builder().value(UUID.randomUUID().toString()).build();
         var storyContent = StoryContent.builder().value("It all happened over night...").build();
         var story = Story.builder()
@@ -35,8 +43,11 @@ public class StoryTests {
                 .updatedAt(Instant.now())
                 .build();
 
-        //Should
+        //When
         var storyValidationService = new StoryValidationService();
-        storyValidationService.validate(story);
+        var validatedStory = storyValidationService.validate(story);
+
+        //Should
+        assertThat(validatedStory).isEqualTo(story);
     }
 }

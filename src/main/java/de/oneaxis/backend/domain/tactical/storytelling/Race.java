@@ -7,6 +7,6 @@ import lombok.Value;
 @ValueObject
 @Value
 @Builder
-class Race {
+public class Race {
     private final String value;
 }

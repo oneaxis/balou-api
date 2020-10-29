@@ -7,6 +7,6 @@ import lombok.Value;
 @ValueObject
 @Value
 @Builder
-class Species {
+public class Species {
     private final String value;
 }

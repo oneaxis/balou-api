@@ -7,6 +7,6 @@ import lombok.Value;
 @ValueObject
 @Value
 @Builder
-class StoryId {
+public class StoryId {
     private final String value;
 }

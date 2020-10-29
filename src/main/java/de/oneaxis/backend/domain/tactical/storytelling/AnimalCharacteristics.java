@@ -7,7 +7,7 @@ import lombok.Value;
 @ValueObject
 @Value
 @Builder
-class AnimalCharacteristics {
+public class AnimalCharacteristics {
     private final Species species;
     private final Race race;
 }

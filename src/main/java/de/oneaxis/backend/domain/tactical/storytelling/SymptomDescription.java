@@ -7,6 +7,6 @@ import lombok.Value;
 @ValueObject
 @Value
 @Builder
-class SymptomDescription {
+public class SymptomDescription {
     private final String value;
 }

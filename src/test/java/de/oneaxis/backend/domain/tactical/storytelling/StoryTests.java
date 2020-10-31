@@ -19,7 +19,7 @@ class StoryTests {
     }
 
     @Test
-    void ShouldReturnValidatedStory() {
+    void ShouldPassValidation() {
 
         //With
         var animalId = AnimalId.builder().value(UUID.randomUUID().toString()).build();

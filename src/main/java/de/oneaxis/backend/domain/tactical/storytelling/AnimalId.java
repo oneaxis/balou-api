@@ -4,9 +4,12 @@ import de.oneaxis.backend.domain.strategic.ValueObject;
 import lombok.Builder;
 import lombok.Value;
 
+import javax.validation.constraints.NotEmpty;
+
 @ValueObject
 @Value
 @Builder
 public class AnimalId {
+    @NotEmpty
     private final String value;
 }

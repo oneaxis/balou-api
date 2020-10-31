@@ -1,5 +1,7 @@
 package de.oneaxis.backend.domain.tactical.storytelling;
 
+import de.oneaxis.backend.domain.tactical.validation.ValidationService;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -7,7 +9,14 @@ import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class StoryTests {
+class StoryTests {
+
+    private static ValidationService<Story> validationService;
+
+    @BeforeAll
+    static void initPrerequisites() {
+        validationService = new ValidationService<>();
+    }
 
     @Test
     void ShouldReturnValidatedStory() {
@@ -32,7 +41,7 @@ public class StoryTests {
                 .createdAt(Instant.now())
                 .build();
         var storyId = StoryId.builder().value(UUID.randomUUID().toString()).build();
-        var storyContent = StoryContent.builder().value("It all happened over night...").build();
+        var storyContent = StoryContent.builder().value("I.").build();
         var story = Story.builder()
                 .createdAt(Instant.now())
                 .deletedAt(Instant.now())
@@ -44,10 +53,16 @@ public class StoryTests {
                 .build();
 
         //When
-        var storyValidationService = new StoryValidationService();
-        var validatedStory = storyValidationService.validate(story);
+        var storyValidationResult = validationService.validate(story);
 
         //Should
-        assertThat(validatedStory).isEqualTo(story);
+        if (!storyValidationResult.getConstraintViolations().isEmpty())
+            storyValidationResult.getConstraintViolations()
+                    .forEach(element -> System.out.println("VALIDATION EXCEPTION: ".concat(element.getMessage())));
+
+        assertThat(storyValidationResult.getValidationSubject()).isEqualTo(story);
+        assertThat(storyValidationResult.getConstraintViolations().size()).isEqualTo(0);
+
+
     }
 }

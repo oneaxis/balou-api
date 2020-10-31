@@ -41,7 +41,7 @@ class StoryTests {
                 .createdAt(Instant.now())
                 .build();
         var storyId = StoryId.builder().value(UUID.randomUUID().toString()).build();
-        var storyContent = StoryContent.builder().value("I.").build();
+        var storyContent = StoryContent.builder().value("It all happened over night...").build();
         var story = Story.builder()
                 .createdAt(Instant.now())
                 .deletedAt(Instant.now())

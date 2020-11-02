@@ -1,13 +1,13 @@
 package de.oneaxis.backend.domain.tactical.storytelling;
 
-import de.oneaxis.backend.domain.strategic.Aggregate;
+import de.oneaxis.backend.domain.strategic.AggregateRoot;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.Valid;
 import java.time.Instant;
 
-@Aggregate
+@AggregateRoot
 @Data
 @Builder
 public class Story {
